@@ -24,13 +24,36 @@ Development Tools :-
 
  -> GitHub: version control, manages contributions, and provides automated builds via GitHub Actions.
 
-
-
-
-
-
 	Windows 10 and above
 	macOS 10.15 (Catalina) and above
 	Linux (Ubuntu 20.04 LTS and above)
 
 
+Run Instructions: -
+
+After building the project, you can run the NOAH parser to analyze `.noah` files:
+
+1. Run the Parser:
+   - Navigate to the root directory of your project.
+   - Use the following command to run the parser with a sample file (replace `sample.noah` with the actual file path):
+     ```bash
+     java -cp target/classes com.example.antlr.NOAHParserMain src/data/sample.noah
+     ```
+
+   - This command will parse the input `.noah` file, generate the Abstract Syntax Tree (AST), and output it to the console or a file as defined in your code.
+
+2. Sample Files:
+   - Sample NOAH programs demonstrating language constructs are in the `src/data` directory. You can test the parser by running any of these sample files.
+
+Sample Programs: -
+
+- `variables.noah` - Demonstrates variable declaration and assignment.
+- `operators.noah` - Tests arithmetic and relational operators.
+- `booleans.noah` - Shows boolean values and logical operations.
+- `control_flow.noah` - Uses conditional statements like if-else and ternary operator.
+- `loops.noah` - Demonstrates looping constructs, including `for` and `while` loops.
+
+Example Usage: -
+To parse a file called `variables.noah`, run:
+```bash
+java -cp target/classes com.example.antlr.NOAHParserMain src/data/variables.noah
