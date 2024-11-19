@@ -1,0 +1,9 @@
+int score = 85;
+string result = (score >= 50) ? "Pass" : "Fail";
+print("Result: " + result);
+
+if (score >= 75) {
+    print("Grade: A");
+} else {
+    print("Grade: B or below");
+}
