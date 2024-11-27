@@ -1,6 +1,0 @@
-int a = 5;
-float b = 3.14;
-string greeting = "Hello, NOAH!";
-print("Integer: " + a);
-print("Float: " + b);
-print("Greeting: " + greeting);
