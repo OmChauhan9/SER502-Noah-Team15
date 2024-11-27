@@ -1,23 +1,47 @@
 package com.example.antlr;
 
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.*;
+import com.example.gen.NOAHLexer;
+import com.example.gen.NOAHParser;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
 
 public class NOAHParserMain {
-    public static void main(String[] args) throws Exception {
-        // Sample input for testing
-        String input = "x = 3 + 5;";
+    public static void main(String[] args) {
+        try {
+            // Initialize runtime
+            NOAHRuntime runtime = new NOAHRuntime();
 
-        // Create an input stream from the string
-        CharStream charStream = CharStreams.fromString(input);
-        NOAHLexer lexer = new NOAHLexer(charStream); // Create lexer
-        CommonTokenStream tokens = new CommonTokenStream(lexer); // Create token stream
-        NOAHParser parser = new NOAHParser(tokens); // Create parser
+            // Create lexer and parser
+            NOAHLexer lexer = new NOAHLexer(CharStreams.fromFileName(args[0]));
+            CommonTokenStream tokens = new CommonTokenStream(lexer);
+            NOAHParser parser = new NOAHParser(tokens);
 
-        // Parse the input and get the parse tree
-        ParseTree tree = parser.start(); // Assuming 'start' is the entry rule
+            // Parse and check for syntax errors
+            ParseTree tree = parser.start();
+            if (parser.getNumberOfSyntaxErrors() > 0) {
+                System.err.println("Syntax errors found");
+                System.exit(1);
+            }
 
-        // Print the parse tree
-        System.out.println(tree.toStringTree(parser)); // Display the parse tree
+            // Create interpreter and execute
+            NOAHInterpreter interpreter = new NOAHInterpreter(runtime);
+            interpreter.visit(tree);
+
+            // Check for runtime errors
+            if (runtime.getErrorHandler().hasErrors()) {
+                for (NOAHError error : runtime.getErrorHandler().getErrors()) {
+                    System.err.println(error);
+                }
+                System.exit(1);
+            }
+
+//            // Print the parse tree
+//            System.out.println(tree.toStringTree(parser));
+
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+            System.exit(1);
+        }
     }
 }

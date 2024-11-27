@@ -1,0 +1,4 @@
+boolean flag1 = true;
+boolean flag2 = false;
+print("Flag1 and Flag2: " + (flag1 and flag2));
+print("Flag1 or Flag2: " + (flag1 or flag2));

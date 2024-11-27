@@ -1,0 +1,11 @@
+int x = 10;
+int y = 20;
+if (x > 5 and y > 15) {
+    print("Both conditions are true");
+}
+if (x > 5 or y < 15) {
+    print("At least one condition is true");
+}
+if (not (x < 5)) {
+    print("x is NOT less than 5");
+}

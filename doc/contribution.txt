@@ -8,10 +8,9 @@ Aksh Rajesh Chauhan
   - Defined the initial grammar rules for the NOAH language.
   - Developed regular expressions for token definitions and key language constructs.
   - Assisted in testing and debugging the lexer.
-
-- Future Plans:
-  - Refine grammar and token definitions based on parser testing feedback.
-  - Work on optimizing the lexer for better performance.
+  - Contributed to the development of the interpreter/runtime environment.
+  - Refined grammar and token definitions based on parser testing feedback.
+  - Optimized the lexer for better performance.
 
 Om Rajesh Chauhan
 
@@ -19,10 +18,9 @@ Om Rajesh Chauhan
   - Set up ANTLR and configured it for generating lexer and parser.
   - Created Java classes to integrate lexer and parser with the compiler.
   - Built the initial parser logic to process the NOAH syntax tree.
-
-- Future Plans:
-  - Improve parser error handling and reporting.
-  - Implement additional grammar features as the project evolves.
+  - Contributed to the development of the interpreter/runtime environment.
+  - Improved parser error handling and reporting
+  - Implemented additional grammar features as the project evolved.
 
 Nisarg Hemalkumar Desai
 
@@ -30,10 +28,9 @@ Nisarg Hemalkumar Desai
   - Designed and wrote sample NOAH programs to test all language constructs (variables, operators, loops, etc.).
   - Verified parser accuracy by running sample programs and checking output.
   - Drafted grammar and language design documentation for the NOAH_Grammar.pdf.
+  - Contributed to the development of the interpreter/runtime environment.
+  - Supported team members in refining the grammar and parser logic.
 
-- Future Plans:
-  - Expand test coverage with more complex sample programs.
-  - Support team members in refining the grammar and parser logic.
 
 Harsh Sanjay Gohel
 
@@ -41,11 +38,11 @@ Harsh Sanjay Gohel
   - Wrote and updated the README.md file, including build and run instructions.
   - Managed the GitHub repository structure and organization.
   - Scheduled and coordinated team meetings, ensuring smooth collaboration.
-
-- Future Plans:
-  - Finalize contribution documentation and maintain GitHub updates.
-  - Assist with testing and integrating all components into the final compiler.
+  - Contributed to the development of the interpreter/runtime environment.
+  - Finalized contribution documentation and maintained GitHub updates.
+  - Assisted with testing and integrating all components into the final compiler.
 
 ## General Notes
-- All team members are encouraged to review each other’s contributions and provide feedback.
+- All team members contributed to the development of the interpreter/runtime environment, ensuring cohesive integration with the lexer and parser.
+- Team members are encouraged to review each other’s contributions and provide feedback.
 - Future contributions will include additional features as identified in testing and peer reviews.
