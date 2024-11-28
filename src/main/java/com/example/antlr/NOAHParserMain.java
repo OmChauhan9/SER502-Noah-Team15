@@ -36,9 +36,6 @@ public class NOAHParserMain {
                 System.exit(1);
             }
 
-//            // Print the parse tree
-//            System.out.println(tree.toStringTree(parser));
-
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
             System.exit(1);

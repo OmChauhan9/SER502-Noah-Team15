@@ -34,6 +34,53 @@ public class NOAHInterpreter extends NOAHBaseVisitor<NOAHRuntime.Value> {
         }
     }
 
+    private NOAHRuntime.Value convertType(NOAHRuntime.Value value, NOAHRuntime.DataType targetType) {
+        if (value.getType() == targetType) {
+            return value;
+        }
+
+        try {
+            Object converted = value.getValue();
+            Object result;
+
+            switch (targetType) {
+                case INTEGER:
+                    // Explicitly enforce integer conversion
+                    if (converted instanceof Double) {
+                        result = ((Double) converted).intValue();
+                    } else if (converted instanceof String) {
+                        result = Integer.parseInt((String) converted);
+                    } else {
+                        result = ((Number) converted).intValue();
+                    }
+                    break;
+                case FLOAT:
+                    if (converted instanceof String) {
+                        result = Double.parseDouble((String) converted);
+                    } else {
+                        result = ((Number) converted).doubleValue();
+                    }
+                    break;
+                case STRING:
+                    result = converted.toString();
+                    break;
+                case BOOLEAN:
+                    if (converted instanceof String) {
+                        result = Boolean.parseBoolean((String) converted);
+                    } else {
+                        result = Boolean.valueOf(converted.toString());
+                    }
+                    break;
+                default:
+                    throw new NOAHRuntimeException("Unsupported type conversion");
+            }
+            return new NOAHRuntime.Value(result, targetType);
+        } catch (Exception e) {
+            throw new NOAHRuntimeException("Cannot convert " + value.getType() + " to " + targetType);
+        }
+    }
+
+
     @Override
     public NOAHRuntime.Value visitAssignment(NOAHParser.AssignmentContext ctx) {
         try {
@@ -432,52 +479,6 @@ public class NOAHInterpreter extends NOAHBaseVisitor<NOAHRuntime.Value> {
                 return NOAHRuntime.DataType.BOOLEAN;
             default:
                 throw new NOAHRuntimeException("Unknown type: " + type);
-        }
-    }
-
-    private NOAHRuntime.Value convertType(NOAHRuntime.Value value, NOAHRuntime.DataType targetType) {
-        if (value.getType() == targetType) {
-            return value;
-        }
-
-        try {
-            Object converted = value.getValue();
-            Object result;
-
-            switch (targetType) {
-                case INTEGER:
-                    // Explicitly enforce integer conversion
-                    if (converted instanceof Double) {
-                        result = ((Double) converted).intValue();
-                    } else if (converted instanceof String) {
-                        result = Integer.parseInt((String) converted);
-                    } else {
-                        result = ((Number) converted).intValue();
-                    }
-                    break;
-                case FLOAT:
-                    if (converted instanceof String) {
-                        result = Double.parseDouble((String) converted);
-                    } else {
-                        result = ((Number) converted).doubleValue();
-                    }
-                    break;
-                case STRING:
-                    result = converted.toString();
-                    break;
-                case BOOLEAN:
-                    if (converted instanceof String) {
-                        result = Boolean.parseBoolean((String) converted);
-                    } else {
-                        result = Boolean.valueOf(converted.toString());
-                    }
-                    break;
-                default:
-                    throw new NOAHRuntimeException("Unsupported type conversion");
-            }
-            return new NOAHRuntime.Value(result, targetType);
-        } catch (Exception e) {
-            throw new NOAHRuntimeException("Cannot convert " + value.getType() + " to " + targetType);
         }
     }
 

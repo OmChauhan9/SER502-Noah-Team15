@@ -55,10 +55,8 @@ java -cp target/classes com.example.antlr.NOAHParserMain src/data/variables.noah
 
 General Notes :
 
-Sample programs location :- src/main/resources/data/[various sample programs]
-
+Sample program location :- src/main/resources/data/[various sample programs]
 NOAHParserMain(Parse tree generation) location :- src/main/java/com/example/antlr/NOAHParserMain.java
-
 NOAHInterpreter(Runtime Environment) location :- src/main/java/com/example/antlr/NOAHInterpreter.java
 
 -> Comment down logic to show parse tree in NOAHParserMain
