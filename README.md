@@ -6,29 +6,30 @@ NOAH(Notation for Optimized Algorithmic Handling) is a new programming language 
 
 System Support :-
 
- -> Windows 10 and above
- -> macOS 10.15 (Catalina) and above
- -> Linux (Ubuntu 20.04 LTS and above)
+-> Windows 10 and above
+-> macOS 10.15 (Catalina) and above
+-> Linux (Ubuntu 20.04 LTS and above)
 
 Development Tools :-
 
- -> ANTLR is used for generating the lexer and parser for NOAH. ANTLR allows the establishment of the grammar of the language and creates an Abstract Syntax Tree for further processing of       the code.
+-> ANTLR is used for generating the lexer and parser for NOAH. ANTLR allows the establishment of the grammar of the language and creates an Abstract Syntax Tree for further processing of the code.
 
- -> GitHub: version control, manages contributions, and provides automated builds via GitHub Actions.
+-> GitHub: version control, manages contributions, and provides automated builds via GitHub Actions.
 
-	Windows 10 and above
-	macOS 10.15 (Catalina) and above
-	Linux (Ubuntu 20.04 LTS and above)
+    Windows 10 and above
+    macOS 10.15 (Catalina) and above
+    Linux (Ubuntu 20.04 LTS and above)
     ANTLR (4.13.2 and above)
-
 
 Run Instructions: -
 
 After building the project, you can run the NOAH parser to analyze `.noah` files:
 
 1. Run the Parser:
+
    - Navigate to the root directory of your project.
    - Use the following command to run the parser with a sample file (replace `sample.noah` with the actual file path):
+
      ```bash
      java -cp target/classes com.example.antlr.NOAHParserMain src/main/resources/data/sample.noah
      ```
@@ -44,21 +45,24 @@ Sample Programs: -
 - `operators.noah` - Tests arithmetic and relational operators.
 - `booleans.noah` - Shows boolean values and logical operations.
 - `control_flow.noah` - Uses conditional statements like if-else and ternary operator.
-- `loops.noah` - Demonstrates looping constructs, including `for` and `while` loops. 
+- `loops.noah` - Demonstrates looping constructs, including `for` and `while` loops.
 - `logical1.noah` - shows `if_else`, `nested if_else`.
 
 Example Usage: -
 To parse a file called `variables.noah`, run:
+
 ```bash
 java -cp target/classes com.example.antlr.NOAHParserMain src/data/variables.noah
 ```
 
 General Notes :
 
-Sample program location :- src/main/resources/data/[various sample programs]
+Sample program location :- data/[various sample programs]
 NOAHParserMain(Parse tree generation) location :- src/main/java/com/example/antlr/NOAHParserMain.java
 NOAHInterpreter(Runtime Environment) location :- src/main/java/com/example/antlr/NOAHInterpreter.java
 
 -> Comment down logic to show parse tree in NOAHParserMain
 
+### Youtube :
 
+https://www.youtube.com/watch?v=WkqSCV-_aeg
